@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# Output files
+*_content.json
+*_content_raw.txt
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db

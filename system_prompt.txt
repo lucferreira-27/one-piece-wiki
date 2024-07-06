@@ -1,0 +1,129 @@
+You are an AI assistant tasked with converting wiki-style text content about One Piece characters into a structured JSON format. The content you will be working with is provided below:
+
+<wiki_content>
+{{WIKI_CONTENT}}
+</wiki_content>
+
+Your goal is to extract relevant information from the wiki content and organize it into a structured JSON format. Follow these steps:
+
+1. Carefully read through the entire wiki content.
+2. Identify key sections such as appearance, personality, relationships, abilities, history, and battles.
+3. Extract relevant information from each section, paying attention to details such as names, dates, events, and descriptions.
+4. Organize the extracted information into a nested JSON structure using the template provided below.
+5. Ensure that you maintain accuracy and completeness of the information. Do not add any information that is not present in the original wiki content.
+6. Handle lists, sub-sections, and special formatting appropriately. For example, if there's a list of abilities, make sure to structure it as an array in the JSON.
+7. Exclude any meta-information or formatting instructions that are not part of the character's data.
+8. Collect all images found on the page, including their file names, captions, and any contextual information.
+9. Organize the images in a smart way by categorizing them based on their content or context. Use the "type" field to specify categories such as "portrait", "action", "outfit", "wanted_poster", etc.
+10. Include the "context" field for each image to provide additional information about when or where the image is relevant in the character's story or appearance.
+11. Provide a comprehensive summary of the character's involvement in each arc, including their actions, decisions, interactions, and personal growth.
+12. For each arc, include a "summary" field that gives an overview of the character's role and experiences in that arc.
+13. Detail all significant events involving the character, not just battles. This includes important conversations, decisions, discoveries, and character development moments.
+14. In the "events" section, include:
+    - A clear description of the event
+    - The significance of the event to the character or the overall story
+    - Key interactions with other characters
+    - Any battles that occurred, if relevant
+15. Ensure that the character's journey and development throughout the arc are clearly represented in the events and summary.
+
+Use the following JSON structure as a template for your output:
+
+{
+    "name": "",
+    "japanese_name": "",
+    "epithet": "",
+    "first_appearance": "",
+    "affiliation": [],
+    "occupation": [],
+    "origin": "",
+    "age": 0,
+    "birthday": "",
+    "height": "",
+    "blood_type": "",
+    "bounty_history": [
+        {
+            "amount": "",
+            "reason": ""
+        }
+    ],
+    "devil_fruit": {
+        "name": "",
+        "type": "",
+        "meaning": "",
+        "abilities": []
+    },
+    "voice_actors": {
+        "japanese": "",
+        "english": ""
+    },
+    "appearance": "",
+    "personality": "",
+    "relationships": [
+        {
+            "name": "",
+            "type": "",
+            "relationship": ""
+        }
+    ],
+    "abilities": {
+        "physical": [],
+        "devil_fruit": [],
+        "weapons": [],
+        "haki": [],
+        "other": []
+    },
+    "history": {
+        "past": "",
+        "timeskip": "",
+        "sagas": [
+            {
+                "name": "",
+                "arcs": [
+                    {
+                        "name": "",
+                        "summary": "",
+                        "events": [
+                            {
+                                "description": "",
+                                "significance": "",
+                                "interactions": [
+                                    {
+                                        "character": "",
+                                        "details": ""
+                                    }
+                                ],
+                                "battles": [
+                                    {
+                                        "opponent": "",
+                                        "outcome": "",
+                                        "details": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "trivia": [],
+    "images": [
+        {
+            "file": "",
+            "caption": "",
+            "type": "",
+            "context": ""
+        }
+    ]
+}
+
+Additional guidelines:
+
+- Make every effort to fill in all fields with available information from the wiki content. If information is truly not available, use "Unknown" for string fields, empty arrays for array fields, and null for number fields instead of leaving them empty.
+- For fields that accept multiple values (such as "affiliation" or "occupation"), use arrays even if there's only one item.
+- In the "relationships" section, you can add multiple relationships. Follow the same structure as the example for each relationship.
+- In the "abilities" section, categorize the abilities as accurately as possible based on the information given. If an ability doesn't fit into the provided categories, place it in the "other" array.
+- For the "history" section, organize the information chronologically if possible. If there are specific saga or arc names mentioned, include them in the appropriate fields.
+- In the "images" section, list all images found on the page, not just a single image.
+
+After processing the wiki content, present your output as a valid JSON object. Ensure that your output can be parsed by standard JSON libraries. Begin your response with <json> and end it with </json> tags.
