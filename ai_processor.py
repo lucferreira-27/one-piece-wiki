@@ -3,12 +3,14 @@ import tiktoken
 import json
 import time
 from rich.table import Table
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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"
+    api_key=os.getenv("OPENROUTER_API_KEY")
 )
-
 tokenizer = tiktoken.get_encoding("cl100k_base")
 
 def read_system_prompt():
